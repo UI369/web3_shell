@@ -59,27 +59,13 @@
 
 .spacer { height: 20px }
 
-.svgContainer {
-  width: 50px;
-  margin: 0em 1em 0em 1em;
-  transition: all 0.3s ease;
-  transform-origin: center;
-}
-
-.svgContainer:hover {
-  fill: blue;
-  transform: scale(1.2);
-}
-
-.svgContainer svg * {
-  pointer-events: auto;
-}
 
 .grid {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+  width: 100%;
   max-width: 800px;
 }
 
@@ -92,7 +78,9 @@
   border: 3px solid #aaa;
   border-radius: 10px;
   transition: color 0.15s ease, border-color 0.15s ease;
-  max-width: 350px;
+  width: calc(100% - 2rem);
+  max-width: 320px;
+  box-sizing: border-box;
 }
 
 .card:hover {
@@ -111,39 +99,57 @@
   line-height: 1.5;
 }
 
-.cardHey {
-  margin: 1rem;
-  padding: 1.5rem;
-  text-align: left;
-  color: inherit;
-  text-decoration: none;
-  border: 3px solid #aaa;
-  border-radius: 10px;
-  transition: color 0.15s ease, border-color 0.15s ease;
-  background-color: #eaeaea;
-  max-width: 350px;
+.iconContainer {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
-.cardHey:hover {
-  color: #0d56ff;
-  border-color: #0d56ff;
+.iconContainer a {
+  flex-basis: 1 0 auto;
+  box-sizing: border-box;
+  margin: 5px;
+  max-width: 100%;
 }
 
-.cardHey h2 {
-  margin: 0 0 1rem 0;
-  font-size: 1.2rem;
+.svgContainer {
+  width: 100%;
+  height: auto;
+  max-width: 50px;
+  max-height: 50px;
+  transition: all 0.3s ease;
+  transform-origin: center;
 }
 
-.cardHey p {
-  margin: 0;
-  font-size: 1.2rem;
-  line-height: 1.5;
+.svgContainer:hover {
+  fill: blue;
+  transform: scale(1.2);
 }
 
+.svgContainer svg * {
+  pointer-events: auto;
+}
 
 @media (max-width: 600px) {
   .grid {
     width: 100%;
     flex-direction: column;
+  }
+}
+
+@media (min-width: 601px) {
+  .icon-container a {
+    flex-basis: calc(25% - 10px);
+    /* 4 items per row */
+    max-width: calc(25% - 10px);
+  }
+}
+
+@media (max-width: 600px) {
+  .icon-container a {
+    flex-basis: calc(50% - 10px);
+    /* 2 items per row */
+    max-width: calc(50% - 10px);
   }
 }

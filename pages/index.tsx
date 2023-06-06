@@ -37,6 +37,9 @@ const Home: NextPage = () => {
         <symbol id="icon-hex" viewBox="0 0 40 40">
           <path d="M4.9,11.7v17.5L20,37.9l15.2-8.8V11.7L20,2.9L4.9,11.7z"></path>
         </symbol>
+        <symbol id="icon-telegram" viewBox="0 0 40 40">
+          <path d="M34,9.6l-4.9,22.9c-0.3,1.6-1.3,2-2.7,1.2L19,28.3l-3.6,3.5c-0.3,0.4-0.7,0.8-1.5,0.8l0.4-7.6l0,0l-0.1,0 l13.9-12.4c0.7-0.6-0.1-0.8-0.9-0.3L10.2,22.9l-7.4-2.3c-1.7-0.4-1.7-1.6,0.3-2.3l28.8-11C33.2,6.7,34.5,7.6,34,9.6z"></path>
+        </symbol>
       </svg>
 
       <main className={styles.main}>
@@ -46,7 +49,7 @@ const Home: NextPage = () => {
           height="247"
           alt="Image"
           className={styles.image}
-          style={{ marginBottom: "1rem" }}
+          style={{ marginBottom: "1rem", width: "100%", maxWidth: "200px" }}
         />
         <Image
           src="/images/daomasons_726x66px.png"
@@ -54,17 +57,21 @@ const Home: NextPage = () => {
           height="33"
           alt="Image"
           className={styles.image}
+          style={{ width: "100%", maxWidth: "363px" }}
         />
 
-        <p className={styles.description} style={{ marginTop: "50px" }}>
-          Bespoke Web3 solutions.{" "}
-          <span style={{ marginLeft: "1.1rem" }}>Inspired by game design.</span>
-        </p>
+        <p
+          className={styles.description}
+          style={{ marginTop: "50px", textAlign: "center", lineHeight: "2" }}
+          dangerouslySetInnerHTML={{
+            __html: `Bespoke Web3 solutions. 
+             <span style={{ marginLeft: "1.1rem" }}>Inspired&nbsp;by&nbsp;game&nbsp;design.</span>`,
+          }}
+        />
 
-        <div className={styles.grid} style={{ marginTop: "10px" }}>
+        <div className={styles.grid}>
           <a
             className={styles.card}
-            style={{ width: "320px" }}
             href="https://buvld99oreh.typeform.com/to/QAzLnvZJ"
             target="_blank"
           >
@@ -76,45 +83,54 @@ const Home: NextPage = () => {
 
           <a
             className={styles.card}
-            style={{ width: "320px" }}
             href="https://daomasons-docs.vercel.app/Intro/about"
             target="_blank"
           >
             <h2>Governance Docs &rarr;</h2>
             <p>Learn how we work</p>
           </a>
-
-          <p>
-            <a
-              href="https://discord.gg/FydbKxFnyU"
-              target="_blank"
-              aria-label="Discord"
-            >
-              <svg className={styles.svgContainer}>
-                <use xlinkHref="#icon-discord"></use>
-              </svg>
-            </a>
-
-            <a
-              href="https://twitter.com/daomasons"
-              target="_blank"
-              aria-label="Twitter"
-            >
-              <svg className={styles.svgContainer}>
-                <use xlinkHref="#icon-twitter"></use>
-              </svg>
-            </a>
-
-            <a
-              href="https://github.com/daomasons"
-              target="_blank"
-              aria-label="Twitter"
-            >
-              <svg className={styles.svgContainer}>
-                <use xlinkHref="#icon-github"></use>
-              </svg>
-            </a>
-          </p>
+        </div>
+        <div className={styles.iconContainer}>
+          <a
+            href="https://discord.gg/FydbKxFnyU"
+            target="_blank"
+            aria-label="Discord"
+            className={styles.icon}
+          >
+            <svg className={styles.svgContainer}>
+              <use xlinkHref="#icon-discord"></use>
+            </svg>
+          </a>
+          <a
+            href="https://twitter.com/daomasons"
+            target="_blank"
+            aria-label="Twitter"
+            className={styles.icon}
+          >
+            <svg className={styles.svgContainer}>
+              <use xlinkHref="#icon-twitter"></use>
+            </svg>
+          </a>
+          <a
+            href="https://github.com/daomasons"
+            target="_blank"
+            aria-label="Twitter"
+            className={styles.icon}
+          >
+            <svg className={styles.svgContainer}>
+              <use xlinkHref="#icon-github"></use>
+            </svg>
+          </a>
+          <a
+            href="https://t.me/daomasons"
+            target="_blank"
+            aria-label="Telegram"
+            className={styles.icon}
+          >
+            <svg className={styles.svgContainer}>
+              <use xlinkHref="#icon-telegram"></use>
+            </svg>
+          </a>
         </div>
       </main>
     </div>
