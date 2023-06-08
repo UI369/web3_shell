@@ -1,85 +1,54 @@
-// pages/index.js
-import { ConnectButton } from '@rainbow-me/rainbowkit';
-import type { NextPage } from 'next';
-import Head from 'next/head';
-import styles from '../styles/Home.module.css';
+import { ConnectButton } from "@rainbow-me/rainbowkit";
+import type { NextPage } from "next";
+import styles from "../styles/Home.module.css";
+import { useEffect } from "react";
 
 const LandingPage: NextPage = () => {
-  return (
-    <div className={styles.container}>
-      <Head>
-        <title>DAO Masons</title>
-        <meta
-          content="DAO Masons is a service dao and designs dao mechanisms inspired by games"
-          name="description"
-        />
-        <link href="/favicon.ico" rel="icon" />
-      </Head>
+  useEffect(() => {
+    const imagePaths = [
+      "images/image1.svg",
+      "images/image2.svg",
+      // Add more image paths as needed
+    ];
 
-      <main className={styles.main}>
-        <ConnectButton />
+    const gridContainer = document.getElementById("gridContainer");
+    if (gridContainer) {
+      // Clear the grid container before adding new grid items
+      gridContainer.innerHTML = "";
 
-        <h1 className={styles.title}>
-          Welcome to <a href="">RainbowKittt</a> + <a href="">wagmi</a> +{' '}
-          <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+      const numberOfColumns = 11;
+      const numberOfRows = 11;
+      const gridItemSize = Math.floor(
+        gridContainer.offsetWidth / numberOfColumns
+      );
 
-        <p className={styles.description}>
-          Getttt started by editing{' '}
-          <code className={styles.code}>pages/index.tsx</code>
-        </p>
+      for (let row = 0; row < numberOfRows; row++) {
+        for (let col = 0; col < numberOfColumns; col++) {
+          const imgIndex = (row * numberOfColumns + col) % imagePaths.length;
+          const imgPath = imagePaths[imgIndex];
 
-        <div className={styles.grid}>
-          <a className={styles.card} href="https://rainbowkit.com">
-            <h2>RainbowKit Documentation &rarr;</h2>
-            <p>Learn how to customize your wallet connection flow.</p>
-          </a>
+          const gridItem = document.createElement("div");
+          gridItem.className = `${styles.gameGridItem}`;
+          gridItem.id = `gridItem${row}-${col}`;
+          gridItem.style.height = `${gridItemSize}px`;
+          gridItem.style.width = `${gridItemSize}px`;
 
-          <a className={styles.card} href="https://wagmi.sh">
-            <h2>wagmi Documentation &rarr;</h2>
-            <p>Learn how to interact with Ethereum.</p>
-          </a>
+          const img = document.createElement("img");
+          img.src = imgPath;
+          img.alt = `Image ${imgIndex + 1}`;
 
-          <a
-            className={styles.card}
-            href="https://github.com/rainbow-me/rainbowkit/tree/main/examples"
-          >
-            <h2>RainbowKit Examples &rarr;</h2>
-            <p>Discover boilerplate example RainbowKit projects.</p>
-          </a>
+          gridItem.appendChild(img);
+          gridContainer.appendChild(gridItem);
+        }
+      }
+      gridContainer.style.maxHeight = `800px`; //`${gridItemSize * numberOfRows}`; //
+      gridContainer.style.maxWidth = `800px`; //`${gridItemSize * numberOfColumns}`;
+      console.log(gridItemSize);
+      console.log(gridItemSize * numberOfRows);
+    }
+  }, []);
 
-          <a className={styles.card} href="https://nextjs.org/docs">
-            <h2>Next.js Documentation &rarr;</h2>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a
-            className={styles.card}
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-          >
-            <h2>Next.js Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            className={styles.card}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          >
-            <h2>Deploy &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a href="https://rainbow.me" rel="noopener noreferrer" target="_blank">
-          DAO Masons 2023
-        </a>
-      </footer>
-    </div>
-  );
+  return <div className={`${styles.gameGrid}`} id="gridContainer"></div>;
 };
 
 export default LandingPage;

@@ -131,6 +131,37 @@
   pointer-events: auto;
 }
 
+/* Grid container */
+.gameGrid {
+  display: grid;
+  grid-template-columns: repeat(11, 1fr);
+  /* Adjust the number of columns as needed */
+  grid-gap:  10px;
+  /* Adjust the gap between grid items */
+  justify-items: center;
+  width: 100vw;
+  height: 100vw;
+  margin: 0 auto;
+  border: 1px solid #ddd;
+  
+}
+
+/* Grid items */
+.gameGridItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  max-height: 100%;
+  border: 1px solid #ccc;
+}
+
+/* Adjust the size and styling of the images inside grid items if needed */
+.gameGridItem img {
+  max-height: 100%;
+}
+
+
 @media (max-width: 600px) {
   .grid {
     width: 100%;
@@ -145,6 +176,8 @@
     max-width: calc(25% - 10px);
   }
 }
+
+
 
 @media (max-width: 600px) {
   .icon-container a {
