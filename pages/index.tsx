@@ -50,7 +50,7 @@ const Home: NextPage = () => {
           alt="Image"
           className={styles.image}
           layout="responsive"
-          style={{ marginBottom: "1rem", maxWidth: "200px"}}
+          style={{ marginBottom: "1rem", maxWidth: "130px"}}
         />
         <Image
           src="/images/daomasons2_726x65px.png"
