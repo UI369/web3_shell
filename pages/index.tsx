@@ -44,19 +44,21 @@ const Home: NextPage = () => {
 
       <main className={styles.main}>
         <Image
-          src="/images/rook_400x494px.png"
-          width="200"
-          height="247"
+          src="/images/Rook_vec-511x864.png"
+          width="511"
+          height="864"
           alt="Image"
           className={styles.image}
-          style={{ marginBottom: "1rem", width: "100%", maxWidth: "200px" }}
+          layout="responsive"
+          style={{ marginBottom: "1rem", maxWidth: "200px"}}
         />
         <Image
-          src="/images/daomasons_726x66px.png"
+          src="/images/daomasons2_726x65px.png"
           width="363"
-          height="33"
+          height="34"
           alt="Image"
           className={styles.image}
+          layout="responsive"
           style={{ width: "100%", maxWidth: "363px" }}
         />
 
