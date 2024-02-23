@@ -10,7 +10,7 @@ const Home: NextPage = () => {
       <Head>
         <title>DAO Masons</title>
         <meta
-          content="DAO Masons is a service dao and designs dao mechanisms inspired by games"
+          content="Bespoke Web3 DAO governance mechanisms inspired by game design"
           name="description"
         />
         <link href="/favicon.ico" rel="icon" />
