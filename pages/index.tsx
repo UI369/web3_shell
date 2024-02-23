@@ -50,11 +50,11 @@ const Home: NextPage = () => {
           alt="Image"
           className={styles.image}
           layout="responsive"
-          style={{ marginBottom: "1rem", maxWidth: "300px" }}
+          style={{ maxWidth: "300px" }}
         />
         <p
           className={styles.description}
-          style={{ marginTop: "50px", textAlign: "center", lineHeight: "2" }}
+          style={{ marginTop: ".5rem", textAlign: "center", lineHeight: "2" }}
           dangerouslySetInnerHTML={{
             __html: `Bespoke Web3 solutions. 
              <span style={{ marginLeft: "1.1rem" }}>Inspired&nbsp;by&nbsp;game&nbsp;design.</span>`,
